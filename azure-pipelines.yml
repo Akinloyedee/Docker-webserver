@@ -13,5 +13,5 @@ steps:
 - script: |
     echo "Starting CI/CD pipeline..."
     echo "Building Docker image..."
-    docker build -t docker-webserver:latest .
+    docker build -f docker-webserver-task/Dockerfile -t docker-webserver:latest docker-webserver-task
   displayName: 'Build Docker Image'
