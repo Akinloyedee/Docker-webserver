@@ -15,3 +15,12 @@ steps:
     echo "Building Docker image..."
     docker build -f docker-webserver-task/Dockerfile -t docker-webserver:latest docker-webserver-task
   displayName: 'Build Docker Image'
+
+- task: Docker@2
+  displayName: 'Push Docker Image to ACR'
+  inputs:
+      command: 'buildAndPush'
+      repository: 'docker-webserver'
+      containerRegistry: 'acr-connection'
+      tags: |
+        latest
